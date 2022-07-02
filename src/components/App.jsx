@@ -8,18 +8,11 @@ import data from '../data.json';
 import friends from '../friends.json';
 import transactions from '../transactions.json';
 
+import './App.css';
+
 export default function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <section className="main">
       <Profile
         name={user.username}
         tag={user.tag}
@@ -30,10 +23,8 @@ export default function App() {
         likes={user.stats.likes}
       />
       <Statistics title="Upload stats" stats={data} />
-
       <FriendList friends={friends} />
-
-      <Transactions items={transactions}/>
-    </div>
+      <Transactions items={transactions} />
+    </section>
   );
 }
