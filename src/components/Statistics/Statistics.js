@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
-import styles from './Statistics.module.css'
+import styles from './Statistics.module.css';
 
 export default function Statistics({ title, stats }) {
   return (
     <section className={styles.statistics}>
-      <h2 className={styles.title}>{title}</h2>
+      {title ? <h2 className={styles.title}>{title}</h2> : null}
       <ul className={styles.statList}>
         {stats.map(item => (
-          <li key={item.id} className={styles.item} style={{backgroundColor: getRandomHexColor()}}>
+          <li
+            key={item.id}
+            className={styles.item}
+            style={{ backgroundColor: getRandomHexColor() }}
+          >
             <span className={styles.label}>{item.label}</span>
             <span className={styles.percentage}>{item.percentage}%</span>
           </li>
